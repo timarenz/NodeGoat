@@ -5,10 +5,13 @@ jobs:
   docker-test:
     name: Docker
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
+
+      - name: Get short SHA
+        run: echo "GHA_SHA=${GITHUB_SHA:0:7}" >> $GITHUB_ENV
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -16,4 +19,4 @@ jobs:
       - name: Build
         uses: docker/build-push-action@v2
         with:
-          tags: nodegoat:{{ github.ref }}
+          tags: nodegoat:${{ env.GHA_SHA }}

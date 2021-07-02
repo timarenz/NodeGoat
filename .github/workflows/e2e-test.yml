@@ -6,21 +6,16 @@ jobs:
     name: Node.js
     runs-on: ubuntu-latest
 
-    strategy:
-      fail-fast: false
-      matrix:
-        node-version: ["12.18.2"]
-
     steps:
-      - name: Checkout https://github.com/${{ github.repository }}@${{ github.ref }}
+      - name: Check out the repo
         uses: actions/checkout@v2
         with:
           persist-credentials: false
 
-      - name: Set up Node.js ${{ matrix.node-version }}
+      - name: Set up Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: "12.18.2"
 
       - name: Use cache
         uses: actions/cache@v2
@@ -28,7 +23,7 @@ jobs:
           path: |
             ~/.npm
             ~/.cache
-          key: ${{ runner.os }}-node${{ matrix.node-version }}-E2E-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-node12-E2E-${{ hashFiles('package-lock.json') }}
 
       - name: Install dependencies
         run: |
