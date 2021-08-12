@@ -25,7 +25,8 @@ jobs:
           tags: nodegoat:${{ env.GHA_SHA }}
 
       - name: Docker images
-        shell: docker images ls
+        shell: bash
+        run: docker images ls
 
       - name: Lacework vulnerability scan
         shell: bash
