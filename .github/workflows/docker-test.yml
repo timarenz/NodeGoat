@@ -23,6 +23,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           tags: nodegoat:${{ env.GHA_SHA }}
+          load: true
 
       - name: Docker images
         shell: bash
