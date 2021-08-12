@@ -36,4 +36,4 @@ jobs:
           sudo apt-get -y install curl
           curl -L https://github.com/lacework/lacework-vulnerability-scanner/releases/latest/download/lw-scanner-linux-amd64 -o lw-scanner
           chmod +x lw-scanner
-          ./lw-scanner evaluate nodegoat ${{ env.GHA_SHA }} --build-id ${{ github.run_id }}
+          ./lw-scanner scan nodegoat ${{ env.GHA_SHA }} --build-id ${{ github.run_id }}
