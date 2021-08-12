@@ -5,6 +5,9 @@ jobs:
   docker-test:
     name: Docker
     runs-on: ubuntu-latest
+    env:
+      LW_ACCESS_TOKEN: ${{ secrets.LW_ACCESS_TOKEN }}
+      LW_ACCOUNT_NAME: ${{ secrets.LW_ACCOUNT_NAME }}
 
     steps:
       - name: Check out the repo
