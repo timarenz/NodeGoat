@@ -25,7 +25,7 @@ jobs:
           tags: nodegoat:${{ env.GHA_SHA }}
           load: true
 
-      - name: Scan container images for vulnerabitilies using Lacework
+      - name: lw-scanner
         uses: timarenz/lw-scanner-action@v0.0.3
         with:
           image_name: nodegoat
