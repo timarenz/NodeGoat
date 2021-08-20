@@ -26,7 +26,7 @@ jobs:
           load: true
 
       - name: lw-scanner
-        uses: timarenz/lw-scanner-action@v0.1.0
+        uses: timarenz/lw-scanner-action@v0.2.0
         with:
           image_name: nodegoat
           image_tag: ${{ env.GHA_SHA }}
