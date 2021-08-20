@@ -31,3 +31,4 @@ jobs:
           image_name: nodegoat
           image_tag: ${{ env.GHA_SHA }}
           fail_only_if_vulnerabilities_fixable: true
+          scan_library_packages: true
